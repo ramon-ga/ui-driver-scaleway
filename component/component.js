@@ -47,6 +47,22 @@ define('shared/components/node-driver/driver-%%DRIVERNAME%%/component', ['export
         errors.push('Name is required');
       }
 
+      if (!this.get('model.%%DRIVERNAME%%Config.commercialType') ) {
+        errors.push('Specifying a %%DRIVERNAME%% Instance Type is required');
+      }
+
+      if (!this.get('model.%%DRIVERNAME%%Config.organization') ) {
+        errors.push('Specifying a %%DRIVERNAME%% Organization is required');
+      }
+
+      if (!this.get('model.%%DRIVERNAME%%Config.token') ) {
+        errors.push('Specifying a %%DRIVERNAME%% Token is required');
+      }
+
+      if (!this.get('model.%%DRIVERNAME%%Config.image') ) {
+        errors.push('Specifying a %%DRIVERNAME%% Image is required');
+      }
+
       // Set the array of errors for display,
       // and return true if saving should continue.
       if ( get(errors, 'length') )
