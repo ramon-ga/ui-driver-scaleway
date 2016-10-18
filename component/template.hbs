@@ -6,27 +6,95 @@
     {{!-- An example input option --}}
     <div class="row box mt-20">
       <h4>Instance Options</h4>
-      <div class="row">
-        <div class="col span-2 col-inline">
-          <label>CPUs</label>
-        </div>
 
-        <div class="col span-1">
-          {{config.cpuCount}}
-        </div>
-        <div class="col span-3">
-          {{input-slider value=config.cpuCount valueMin=1 valueMax=32}}
-        </div>
 
-        <div class="col span-2 col-inline">
-          <label>Memory Size</label>
-        </div>
-        <div class="col span-4">
-          <div class="input-group">
-            {{input-integer min=1 value=config.memorySize classNames="form-control"}}
-            <div class="input-group-addon bg-default">MB</div>
-          </div>
-        </div>
+  <div class="container-fluid">
+    {{partial "host/add-common"}}
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>Scaleway</span>
+    </div>
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>API Access</span>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Organization</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            value=model.%%DRIVERNAME%%Config.organization
+          }}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Token</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            value=model.%%DRIVERNAME%%Config.token
+          }}
+      </div>
+    </div>
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>Instance</span>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Image</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            value=model.%%DRIVERNAME%%Config.image
+          }}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Type</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            value=model.%%DRIVERNAME%%Config.commercialType
+          }}
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">IP Address</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            value=model.%%DRIVERNAME%%Config.ip
+          }}
+      </div>
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Additional Volumes</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="text"
+            class="form-control"
+            placeholder="Attach additional volume (e.g., 50G)"
+            value=model.%%DRIVERNAME%%Config.volumes
+          }}
+      </div>
+    </div>
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>Debug</span>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2 form-label">
+        <label class="form-control-static">Enable Debugging</label>
+      </div>
+      <div class="col-md-4">
+          {{input type="checkbox"
+            checked=model.%%DRIVERNAME%%Config.debug
+          }}
       </div>
     </div>
 
@@ -57,3 +125,4 @@
   {{!-- This component shows the Create and Cancel buttons --}}
   {{save-cancel save="save" cancel="cancel"}}
 </section>
+</div>

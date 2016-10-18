@@ -23,10 +23,16 @@ define('shared/components/node-driver/driver-%%DRIVERNAME%%/component', ['export
 
     // Write your component here, starting with setting 'model' to a machine with your config populated
     bootstrap: function() {
-      let config = get(this, 'globalStore').createRecord({
-        type: '%%DRIVERNAME%%Config',
-        cpuCount: 2,
-        memorySize: 2048,
+
+      let config = this.get('globalStore').createRecord({
+        type        : '%%DRIVERNAME%%Config',
+        commercialType: 'VC1S',
+        debug: false,
+        image: 'ubuntu-xenial',
+        ip: '',
+        organization: '',
+        token: '',
+        volumes: ''
       });
 
       set(this, 'model.%%DRIVERNAME%%Config', config);
@@ -39,14 +45,6 @@ define('shared/components/node-driver/driver-%%DRIVERNAME%%/component', ['export
       var errors = get(this, 'errors')||[];
       if ( !get(this, 'model.name') ) {
         errors.push('Name is required');
-      }
-
-      // Add more specific errors
-
-      // Check something and add an error entry if it fails:
-      if ( parseInt(get(this, 'config.memorySize'),10) < 1024 )
-      {
-        errors.push('Memory Size must be at least 1024 MB');
       }
 
       // Set the array of errors for display,
