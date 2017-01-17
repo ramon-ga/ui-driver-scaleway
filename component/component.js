@@ -27,9 +27,11 @@ define('shared/components/node-driver/driver-%%DRIVERNAME%%/component', ['export
       let config = this.get('globalStore').createRecord({
         type        : '%%DRIVERNAME%%Config',
         commercialType: 'VC1S',
+        region: '',
         debug: false,
         image: 'ubuntu-xenial',
         ip: '',
+        ipv6: false,
         organization: '',
         token: '',
         volumes: ''
