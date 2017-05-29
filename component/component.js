@@ -28,6 +28,7 @@ define('shared/components/node-driver/driver-%%DRIVERNAME%%/component', ['export
         type        : '%%DRIVERNAME%%Config',
         commercialType: 'VC1S',
         region: '',
+        name: '',
         debug: false,
         image: 'ubuntu-xenial',
         ip: '',
